@@ -33,6 +33,7 @@ We're all set! Just run the following command and it will take care of the rest:
 
     python analyser.py
 
+![Demo](https://i.imgur.com/HVTeTvw.gif)
 ## Troubleshooting
 1. If you are getting errors running opencv, we suggest you install it from [here](https://www.geeksforgeeks.org/how-to-install-opencv-for-python-in-windows/)
 2. If you're running Windows, the image prompts might launch but not pop up and go to minimised state. 
