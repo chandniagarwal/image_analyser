@@ -1,17 +1,21 @@
 from PyInquirer import prompt
 import cv2
 
-from algorithms import sift, orb, gabor
+from algorithms import sift, orb, gabor, fast_true, fast_false
+
+algo_to_function_map = {
+    "sift": sift,
+    "orb": orb,
+    "gabor": gabor,
+    "fast_with_nonmax_suppression": fast_true,
+    "fast_without_nonmax_suppression": fast_false,
+}
 
 
 def main(image_path, algos):
     img = cv2.imread(image_path)
     cv2.imshow("Original img", img)
-    algo_to_function_map = {
-        "sift": sift,
-        "orb": orb,
-        "gabor": gabor
-    }
+
     algorithms = list(map(algo_to_function_map.get, algos))  # List of callables
 
     for algo in algorithms:
@@ -32,17 +36,7 @@ if __name__ == "__main__":
             "type": "checkbox",
             "name": "algos",
             "message": "Which algorithms do you want to run?",
-            "choices": [
-                {
-                    "name": "sift"
-                },
-                {
-                    "name": "orb"
-                },
-                {
-                    "name": "gabor"
-                }
-            ]
+            "choices": [{"name": key for key in algo_to_function_map.keys()}]
         }
     ]
     answers = prompt(questions)
