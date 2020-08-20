@@ -36,7 +36,7 @@ if __name__ == "__main__":
             "type": "checkbox",
             "name": "algos",
             "message": "Which algorithms do you want to run?",
-            "choices": [{"name": key for key in algo_to_function_map.keys()}]
+            "choices": [{"name": key} for key in algo_to_function_map.keys()]
         }
     ]
     answers = prompt(questions)

@@ -22,4 +22,4 @@ def fast_analyser(img, fast):
     print("nonmaxSuppression:{}".format(fast.getNonmaxSuppression()))
     print("neighborhood: {}".format(fast.getType()))
     print("Total Keypoints with nonmaxSuppression: {}".format(len(kp)))
-    cv.imwrite('fast_true.png', img2)
+    return img2
